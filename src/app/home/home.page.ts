@@ -24,6 +24,6 @@ onDeviceDiscovered(device){
     this.devices.push(device)
     console.log(device)
   })
-}
+}sdf
 
 }
