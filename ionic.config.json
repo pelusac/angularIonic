@@ -1,7 +1,8 @@
 {
   "name": "blankApp2",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
