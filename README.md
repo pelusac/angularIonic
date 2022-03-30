@@ -6,4 +6,4 @@ Develop app Android
 1. Crear componente.
 
   Primero creamos un módulo:
-    ```ionic generate module components```js
+    ```ionic generate module components```js,
