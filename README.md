@@ -231,4 +231,20 @@ Vídeo ejemplo:
 
 https://www.youtube.com/watch?v=ZZOauPBUhSs
 
+3. Debug en dispositivo físico.
+
+Instalar Android Studio y Android API32 , Android 12.0.
+ - Quedará instalado en ```C:\Users\ATC\AppData\Local\Android\Sdk``` donde ATC será el nombre de usuario del equipo.
+ - En el móvil hay que activar el modo desarrollador y dar permisos de instalar mediante USB.
+ - Además instalar adb-setup-1.4.3 en el sistema operativo.
+ - Instalar jdk-11.0.14_windows-x64_bin. Debe ser esta versión.
+ - Tras esto hay que integrar la variables de entorno en el SO.
+  1. En variable de usuario```JAVA_HOME````  como nombre de variable. Como valor de la variable: ```C:\Program Files\Java\jdk-11.0.14```
+  2. En variables del sistema lo mismo y además: 
+        ```JAVA_HOME````  como nombre de variable. Como valor de la variable: ```C:\Program Files\Java\jdk-11.0.14```
+        ```ANDROID_HOME```  como nombre de variable. Como valor de la variable:```C:\Users\ATC\AppData\Local\Android\Sdk```
+        ```ANDROID_SDK_ROOT``` como nombre de variable. Como valor de la variable:```C:\Users\ATC\AppData\Local\Android\Sdk```
+        Agregar al ```path``` para que quede:![image](https://user-images.githubusercontent.com/16193873/160811865-0656c945-d148-4b5f-948f-7aead8e1e287.png)
+
+        
 
