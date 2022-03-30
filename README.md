@@ -239,7 +239,7 @@ Instalar Android Studio y Android API32 , Android 12.0.
  - Además instalar adb-setup-1.4.3 en el sistema operativo.
  - Instalar jdk-11.0.14_windows-x64_bin. Debe ser esta versión.
  - Tras esto hay que integrar la variables de entorno en el SO.
-  1. En variable de usuario```JAVA_HOME````  como nombre de variable. Como valor de la variable: ```C:\Program Files\Java\jdk-11.0.14```
+  1. En variable de usuario```JAVA_HOME```  como nombre de variable. Como valor de la variable: ```C:\Program Files\Java\jdk-11.0.14```
   2. En variables del sistema lo mismo y además: 
         ```JAVA_HOME```  como nombre de variable. Como valor de la variable: ```C:\Program Files\Java\jdk-11.0.14```
         ```ANDROID_HOME```  como nombre de variable. Como valor de la variable:```C:\Users\ATC\AppData\Local\Android\Sdk```
