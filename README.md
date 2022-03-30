@@ -244,7 +244,14 @@ Instalar Android Studio y Android API32 , Android 12.0.
         ```JAVA_HOME````  como nombre de variable. Como valor de la variable: ```C:\Program Files\Java\jdk-11.0.14```
         ```ANDROID_HOME```  como nombre de variable. Como valor de la variable:```C:\Users\ATC\AppData\Local\Android\Sdk```
         ```ANDROID_SDK_ROOT``` como nombre de variable. Como valor de la variable:```C:\Users\ATC\AppData\Local\Android\Sdk```
-        Agregar al ```path``` para que quede:![image](https://user-images.githubusercontent.com/16193873/160811865-0656c945-d148-4b5f-948f-7aead8e1e287.png)
-
+        Agregar al ```path``` para que quede:
         
+        ![image](https://user-images.githubusercontent.com/16193873/160811865-0656c945-d148-4b5f-948f-7aead8e1e287.png)
+
+  - Ejecutar: ```adb devices``` que listará los dispositivos físicos conectados. Así verificaremos que no hay problemas de acceso por parte del SO.
+  - Ejecutar: ```ionic capacitor add android```Para generar estructura Android
+  - Ejecutar: ```ionic capacitor copy android``` Para generar los ficheros necesarios de compilación del proyecto para Android
+  - Ejecutar: ```ionic capacitor run```. En la primera opción seleccionar Android, en la segunda el dispositivo para conectarnos.
+  - Por otro lado si todo va bien en el teléfono debemos de dar permisos para instalar APP externa tendremos un tiempo de segundos para aceptar la instalación.
+  
 
