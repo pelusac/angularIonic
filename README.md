@@ -157,5 +157,74 @@ En plantilla ```test.component.html``` vamos a hacer que se muestre el contenido
 </p>
 ```
   
+2. Usar Bluetooth.
 
- 
+En  cli instalar todas  las librerías para poder usar los módulos que sean necesarios y agregarlos al proyecto:
+
+```
+npm install @awesome-cordova-plugins/bluetooth-le
+npm install cordova-plugin-bluetoothle
+npm install @awesome-cordova-plugins/bluetooth-serial
+npm install cordova-plugin-bluetooth-serial
+npm install cordova-plugin-ble-central
+npm install --save @ionic-native/ble
+npm install @awesome-cordova-plugins/ble
+ionic cap sync
+ionic cordova plugin add cordova-plugin-ble-central
+```
+Breve ejemplo de escaneo de dispositivos en el fichero ```home.page.ts```:
+```
+import { Component, NgZone } from '@angular/core';
+import { BLE } from '@ionic-native/ble/ngx';
+@Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+})
+export class HomePage {
+devices: any[] = [];
+  constructor(private ble: BLE,
+              private ngZone: NgZone) {}
+
+Scan(){
+  console.log("he llegado aquí");
+  this.devices = [];
+  this.ble.scan([],15).subscribe(
+    device => this.onDeviceDiscovered(device)
+  );
+}
+
+onDeviceDiscovered(device){
+  console.log('Discovered' + JSON.stringify(device,null,2));
+  this.ngZone.run(()=>{
+    this.devices.push(device)
+    console.log(device)
+  })
+}
+
+}
+```
+Debemos también modificar el fichero ```app.module.ts``` para poder usar el módulo ```BLE```desde cualquier página:
+
+```
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouteReuseStrategy } from '@angular/router';
+
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BLE } from '@ionic-native/ble/ngx';
+
+@NgModule({
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  providers: [BLE,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+
