@@ -227,4 +227,8 @@ import { BLE } from '@ionic-native/ble/ngx';
 export class AppModule {}
 ```
 
+Vídeo ejemplo:
+
+https://www.youtube.com/watch?v=ZZOauPBUhSs
+
 
