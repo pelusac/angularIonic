@@ -1,7 +1,7 @@
 # angularIonic
 Develop app Android
 
-##Integraciones 
+## Integraciones 
 
 1. Crear componente.
 
@@ -67,6 +67,49 @@ import { TestComponent } from './test/test.component';
 export class ComponentModule { }
 ```
 A partir de ahora, se puede utilizar el componente en cualquier página. Solo tendremos que  importar ```ComponentModule```en el módulo de nuestra página y declararlo en los ```imports```. Ejemplo, editamos el ficher ```home.module.ts```:
+
+```
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+import { HomePage } from './home.page';
+
+import { HomePageRoutingModule } from './home-routing.module';
+import { ComponentModule } from '../component/component.module';
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    HomePageRoutingModule,
+    ComponentModule
+    
+  ],
+  declarations: [HomePage]
+})
+export class HomePageModule {}
+```
+Mostrar el componente es tan sencillo como editar el archivo ```home.page.html``` y añadir el selector del componente del fichero ```test.component.ts``` que es ``` @Component({
+    selector: 'app-test',```
+ Quedando así el .html:
+ 
+ <ion-header>
+ <ion-toolbar>
+   <ion-title>
+     Ionic Blank
+   </ion-title>
+ </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+ <div class="ion-padding">
+   <app-saluda></app-saluda>
+ </div>
+</ion-content>
+```
+
+
 
 
   
