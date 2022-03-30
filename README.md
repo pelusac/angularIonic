@@ -26,12 +26,12 @@ Develop app Android
   Ya podemos crear el componente. Volvemos a ionic cli y escribimos ```ionic generate component/test```. Esto genera una carpeta llamada test dentro component con nuestro componente.
   
   Dentro de test se haabrán generado tre ficheros con extensiones .html, .scss, .ts si abrimos el fichero ```test.component.html``` veremos:
-  ```
+  ```html
   <p>
   test works!
   </p
 
-  ```
+  ```typescript
   Y en ```test.component.ts```:
   ```
   import { Component, OnInit } from '@angular/core';
@@ -51,7 +51,7 @@ Develop app Android
 ```
 Ya podemos importar ```TestComponet``` en el módulo ```component.module.ts``` lo declaramos en la sección ```declarations```y en la sección ```exports```:
 
-```
+```typescript
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -68,7 +68,7 @@ export class ComponentModule { }
 ```
 A partir de ahora, se puede utilizar el componente en cualquier página. Solo tendremos que  importar ```ComponentModule```en el módulo de nuestra página y declararlo en los ```imports```. Ejemplo, editamos el ficher ```home.module.ts```:
 
-```
+```typescript
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -128,7 +128,7 @@ Por ejemplo podemos pasarle un atributo nombre de esta manera:
 ```
 Luego en el controlador de nuestro componente ```test.component.ts``` definimos el parámetro de entrada con el decorador ```Input``` de la siguiente manera:
 Ahora podemos hacer que en lugar de mostrar en pantalla “saluda works!” salude a la persona que recibamos en el parámetro nombre, para ello vamos a crear una variable que llamaremos text y a la que en el constructor le daremos el valor ‘¡Hola’ concatenando el nombre que recibe como input:
-```
+```typescript
 import { Component, OnInit, Input } from '@angular/core';
  
 @Component({
@@ -173,7 +173,7 @@ ionic cap sync
 ionic cordova plugin add cordova-plugin-ble-central
 ```
 Breve ejemplo de escaneo de dispositivos en el fichero ```home.page.ts```:
-```
+```typescript
 import { Component, NgZone } from '@angular/core';
 import { BLE } from '@ionic-native/ble/ngx';
 @Component({
@@ -206,7 +206,7 @@ onDeviceDiscovered(device){
 ```
 Debemos también modificar el fichero ```app.module.ts``` para poder usar el módulo ```BLE```desde cualquier página:
 
-```
+```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
