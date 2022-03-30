@@ -253,5 +253,6 @@ Instalar Android Studio y Android API32 , Android 12.0.
   - Ejecutar: ```ionic capacitor copy android``` Para generar los ficheros necesarios de compilación del proyecto para Android
   - Ejecutar: ```ionic capacitor run```. En la primera opción seleccionar Android, en la segunda el dispositivo para conectarnos.
   - Por otro lado si todo va bien en el teléfono debemos de dar permisos para instalar APP externa tendremos un tiempo de segundos para aceptar la instalación.
-  
+  - Para mandarlo desde Android Studio ejecutar ```ionic cap open android``` Ahora ya podemos debugear nuestra app on line
+  - Para el debugger desde chrome escribir en la barra de direcciones ```chrome://inspect/#devices```
 
