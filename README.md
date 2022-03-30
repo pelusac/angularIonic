@@ -9,7 +9,7 @@ Develop app Android
     ```ionic generate module component```
   Esto genera una carpeta llamada components y dentro un fichero llamado ```component.module.ts``` con este contenido:
   
-  ```
+  ```typescript
   import { NgModule } from '@angular/core';
   import { CommonModule } from '@angular/common';
 
