@@ -1,5 +1,9 @@
 import { Component, NgZone } from '@angular/core';
 import { BLE } from '@ionic-native/ble/ngx';
+
+import { BluetoothSerial } from '@awesome-cordova-plugins/bluetooth-serial/ngx';
+import {AlertController, ToastController } from '@ionic/angular';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,15 +11,19 @@ import { BLE } from '@ionic-native/ble/ngx';
 })
 export class HomePage {
 devices: any[] = [];
+
+
   constructor(private ble: BLE,
-              private ngZone: NgZone) {}
+              private ngZone: NgZone,
+              private bluetoothSerial: BluetoothSerial) {}
 
 Scan(){
   console.log("he llegado aquí");
   this.devices = [];
-  this.ble.scan([],15).subscribe(
+  this.bluetoothSerial.list().then(
     device => this.onDeviceDiscovered(device)
   );
+  
 }
 
 onDeviceDiscovered(device){
