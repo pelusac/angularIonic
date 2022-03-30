@@ -26,14 +26,14 @@ Develop app Android
   Ya podemos crear el componente. Volvemos a ionic cli y escribimos ```ionic generate component/test```. Esto genera una carpeta llamada test dentro component con nuestro componente.
   
   Dentro de test se haabrán generado tre ficheros con extensiones .html, .scss, .ts si abrimos el fichero ```test.component.html``` veremos:
-  ```html
+  ```
   <p>
   test works!
   </p
 
-  ```typescript
-  Y en ```test.component.ts```:
   ```
+  Y en ```test.component.ts```:
+  ```typescript
   import { Component, OnInit } from '@angular/core';
 
   @Component({
