@@ -93,7 +93,7 @@ export class HomePageModule {}
 Mostrar el componente es tan sencillo como editar el archivo ```home.page.html``` y añadir el selector del componente del fichero ```test.component.ts``` que es ``` @Component({
     selector: 'app-test',```
  Quedando así el .html:
- 
+```
  <ion-header>
  <ion-toolbar>
    <ion-title>
@@ -108,10 +108,54 @@ Mostrar el componente es tan sencillo como editar el archivo ```home.page.html``
  </div>
 </ion-content>
 ```
+A nuestro componente le podemos añadir también atributos personalizados.
+Por ejemplo podemos pasarle un atributo nombre de esta manera:
 
-
-
-
+```
+<ion-header>
+ <ion-toolbar>
+   <ion-title>
+     Ionic Blank
+   </ion-title>
+ </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+ <div class="ion-padding">
+   <app-saluda nombre="Eduardo"></app-saluda>
+ </div>
+</ion-content>
+```
+Luego en el controlador de nuestro componente ```test.component.ts``` definimos el parámetro de entrada con el decorador ```Input``` de la siguiente manera:
+Ahora podemos hacer que en lugar de mostrar en pantalla “saluda works!” salude a la persona que recibamos en el parámetro nombre, para ello vamos a crear una variable que llamaremos text y a la que en el constructor le daremos el valor ‘¡Hola’ concatenando el nombre que recibe como input:
+```
+import { Component, OnInit, Input } from '@angular/core';
+ 
+@Component({
+ selector: 'app-test',
+ templateUrl: './test.component.html',
+ styleUrls: ['./test.component.scss'],
+})
+export class SaludaComponent implements OnInit {
+ 
+ @Input() nombre: string;
+ text: string;
+ 
+ constructor() {
+ }
+ 
+ ngOnInit() {
+ this.text = '¡Hola ' + this.nombre + '!';
+ }
+ 
+}
+```
+En plantilla ```test.component.html``` vamos a hacer que se muestre el contenido de la variable text:
+```
+<p>
+{{ text }}
+</p>
+```
   
 
  
