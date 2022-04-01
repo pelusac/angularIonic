@@ -38,7 +38,7 @@
   </div>
 
   
-    <ion-list padding id="devices" *ngIf="connected = 0">
+    <ion-list padding id="devices">
         <!-- <ion-item *ngFor="let device of pairedDevices">
             {{device.name}}
         </ion-item> -->
@@ -55,4 +55,6 @@
 
     <ion-spinner name="crescent"
     *ngIf="gettingDevices"></ion-spinner>
+
+    <ion-button color="primary" shape="round" size="small" (click)="imprime()">Acciones</ion-button>
   </ion-content>

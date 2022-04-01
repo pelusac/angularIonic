@@ -5,6 +5,7 @@ import { BLE } from '@ionic-native/ble/ngx';
 import { BluetoothSerial } from '@awesome-cordova-plugins/bluetooth-serial/ngx';
 import {AlertController, IonList, ToastController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -124,4 +125,50 @@ connected: boolean = false;
                 });
                 await alert.present();
               }
+
+              imprime(){
+
+                interface Personaje  {
+                  nombre: string;
+                  hp: Number;
+                  habilidades: string[];
+                  puebloNatal?: string;
+                }
+                const personaje: Personaje = {
+                  nombre: "Strioder",
+                  hp: 100,
+                  habilidades: ["bash","counter","healing"]
+                }
+                let nombre: string = "string";
+                let habilidades: string []= ["hola", "adios", "espera","mejor","nos", "importa", "esper"];
+                function multiplicar (numero: number, otroNumero?: number, base:number=2):number{
+                  return numero * base;
+                }
+                interface personajeLoR {
+                  nombre: string;
+                  pv: number;
+                  mostrarHp:()=>void;
+                }
+
+                function curar(personaje:personajeLoR, curarX: number ): void{
+                  personaje.pv += curarX;
+                  
+                }
+                const nuevoPersonaje: personajeLoR = {
+                  nombre: "Aragon",
+                  pv: 50,
+                  mostrarHp(){
+                    console.log("puntos de vidad", this.pv);
+                  }
+                }
+              
+               // curar(nuevoPersonaje, 20);
+                nuevoPersonaje.mostrarHp();
+
+                // const resultado = multiplicar(10,0, 10);
+                // console.log(resultado);
+              }
+            
              }
+
+  
