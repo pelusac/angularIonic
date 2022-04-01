@@ -1,53 +1,58 @@
 <ion-content>
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <label>Plataforma</label>
-    <ion-row>
-    <ion-col><ion-button  color="primary" shape="round" size="small" (click)="Scan()"><ion-icon name="Bluetooth"></ion-icon>Conectar</ion-button></ion-col>
-    <ion-col><ion-button color="primary" shape="round" size="small">Desconectar</ion-button></ion-col>
-    </ion-row>
-  </ion-toolbar>
-</ion-header>
-
-<ion-item>
-  <ion-label >Velocidad</ion-label>
-  <ion-range min="1" max="10" color="secondary">
-    <ion-label slot="start">1</ion-label>
-    <ion-label slot="end">10</ion-label>
-  </ion-range>
-  <ion-button color="secondary" shape="round" size="small">velocidad</ion-button>
-</ion-item>
-<ion-item>
-  <ion-label >Tiempo</ion-label>
-  <ion-range min="1" max="10" color="secondary">
-    <ion-label slot="start">1</ion-label>
-    <ion-label slot="end">10</ion-label>
-  </ion-range>
-  <ion-button color="secondary" shape="round" size="small">tiempo</ion-button>
-</ion-item>
-
-
-
-
-<div id="container">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <label>Plataforma</label>
+      <ion-row>
+      <ion-col><ion-button  color="primary" shape="round" size="small" (click)="startScanning()"><ion-icon name="Bluetooth"></ion-icon>Conectar</ion-button></ion-col>
+      <ion-col><ion-button color="primary" shape="round" size="small" (click)="disconnect()">Desconectar</ion-button></ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-header>
+  
   <ion-item>
-    <button  block>
-        <img src="assets/emergency.jpg" alt="emergency" width="10" height="10"  width="500" height="198">
-    </button>
-    </ion-item>
-</div>
+    <ion-label >Velocidad</ion-label>
+    <ion-range min="1" max="10" color="secondary">
+      <ion-label slot="start">1</ion-label>
+      <ion-label slot="end">10</ion-label>
+    </ion-range>
+    <ion-button color="secondary" shape="round" size="small">velocidad</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label >Tiempo</ion-label>
+    <ion-range min="1" max="10" color="secondary">
+      <ion-label slot="start">1</ion-label>
+      <ion-label slot="end">10</ion-label>
+    </ion-range>
+    <ion-button color="secondary" shape="round" size="small">tiempo</ion-button>
+  </ion-item>
+  
+  
+  
+  
+  <div id="container">
+    <ion-item>
+      <button  block>
+          <img src="assets/emergency.jpg" alt="emergency" width="10" height="10"  width="500" height="198">
+      </button>
+      </ion-item>
+  </div>
 
+  
+    <ion-list padding id="devices" *ngIf="connected = 0">
+        <!-- <ion-item *ngFor="let device of pairedDevices">
+            {{device.name}}
+        </ion-item> -->
+        <ion-list-header >
+            availlable Devices
+        </ion-list-header>
+        <ion-item *ngFor='let device of unpairedDevices'>
+            <span (click)="selectDevice(device.id)">
+                {{device.name || device.address}}
+            </span>
+        </ion-item>
+       
+    </ion-list>
 
- 
-
-<div>
-  <ion-list>
-    <ion-card-content ion-item *ngFor="let device of devices">
-      <p>{{device.name || 'Unnamed'}}</p>
-      <p>{{device.id}}</p>
-      <p> RSSI: {{device.rssi}}</p>
-    </ion-card-content>
-  </ion-list>
-</div>
-
-</ion-content>
+    <ion-spinner name="crescent"
+    *ngIf="gettingDevices"></ion-spinner>
+  </ion-content>
