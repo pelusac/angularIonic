@@ -255,4 +255,8 @@ Instalar Android Studio y Android API32 , Android 12.0.
   - Por otro lado si todo va bien en el teléfono debemos de dar permisos para instalar APP externa tendremos un tiempo de segundos para aceptar la instalación.
   - Para mandarlo desde Android Studio ejecutar ```ionic cap open android``` Ahora ya podemos debugear nuestra app on line
   - Para el debugger desde chrome escribir en la barra de direcciones ```chrome://inspect/#devices```
+  - Debugger con chrome diréctamente sin abrir android studio ```ionic cap run android --livereload --external```
+      Si da problemas quitar las banderas ```ionic cap run android```
+  - Debugger en navegador ```ionic serve --lab``` esto dará vista de smartphone
+  - Debugger en navegador con vista estandar ```ionic serve```
 
