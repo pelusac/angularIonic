@@ -17,6 +17,8 @@ unpairedDevices: any;
 pairedDevices: any;
 gettingDevices: boolean;
 connected: boolean = false;
+titulo: string = "contador APP";
+numero: number = 10;
 
   constructor(private ble: BLE,
               private ngZone: NgZone,
@@ -126,49 +128,4 @@ connected: boolean = false;
                 await alert.present();
               }
 
-              imprime(){
-
-                interface Personaje  {
-                  nombre: string;
-                  hp: Number;
-                  habilidades: string[];
-                  puebloNatal?: string;
-                }
-                const personaje: Personaje = {
-                  nombre: "Strioder",
-                  hp: 100,
-                  habilidades: ["bash","counter","healing"]
-                }
-                let nombre: string = "string";
-                let habilidades: string []= ["hola", "adios", "espera","mejor","nos", "importa", "esper"];
-                function multiplicar (numero: number, otroNumero?: number, base:number=2):number{
-                  return numero * base;
-                }
-                interface personajeLoR {
-                  nombre: string;
-                  pv: number;
-                  mostrarHp:()=>void;
-                }
-
-                function curar(personaje:personajeLoR, curarX: number ): void{
-                  personaje.pv += curarX;
-                  
-                }
-                const nuevoPersonaje: personajeLoR = {
-                  nombre: "Aragon",
-                  pv: 50,
-                  mostrarHp(){
-                    console.log("puntos de vidad", this.pv);
-                  }
-                }
-              
-               // curar(nuevoPersonaje, 20);
-                nuevoPersonaje.mostrarHp();
-
-                // const resultado = multiplicar(10,0, 10);
-                // console.log(resultado);
-              }
-            
-             }
-
-  
+}           
