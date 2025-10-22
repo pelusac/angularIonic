@@ -260,3 +260,9 @@ Instalar Android Studio y Android API32 , Android 12.0.
   - Debugger en navegador ```ionic serve --lab``` esto dará vista de smartphone
   - Debugger en navegador con vista estandar ```ionic serve```
 
+  - UPDATE 2025 cuando graddle de problemas de build
+    en el fichero```gradle.properties```  dentro de la ruta ```\android\gradle\wrapper\gradle-wrapper.properties```agregar la siguiente línea:
+    ```
+    org.gradle.jvmargs=--add-opens java.base/java.io=ALL-UNNAMED
+    ```
+
