@@ -265,4 +265,20 @@ Instalar Android Studio y Android API32 , Android 12.0.
     ```
     org.gradle.jvmargs=--add-opens java.base/java.io=ALL-UNNAMED
     ```
+Error:
+
+FAILURE: Build failed with an exception. * What went wrong: "opens java.io" to unnamed module @25e21ff2
+
+Solución:
+
+Opción 2 – Forzar Gradle a abrir el módulo (no recomendado)
+
+Edita android/gradle.properties y agrega:
+
+org.gradle.jvmargs=--add-opens java.base/java.io=ALL-UNNAMED
+
+
+Esto hace que Gradle pueda usar reflexión en Java 17.
+
+Funciona, pero algunos plugins antiguos pueden seguir fallando, y no es estable a largo plazo.
 
